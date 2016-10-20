@@ -1,11 +1,11 @@
 /*!
- * ngImgCropExtended v0.6.1
+ * ngImgCropExtended v0.6.2
  * http://crackerakiua.github.io/ngImgCropFullExtended/
  *
  * Copyright (c) 2016 Alex Kaul
  * License: MIT
  *
- * Generated at Monday, September 19th, 2016, 9:44:50 AM
+ * Generated at Thursday, October 20th, 2016, 3:43:09 PM
  */
 (function() {
 var crop = angular.module('ngImgCrop', []);
@@ -3127,6 +3127,8 @@ crop.directive('imgCrop', ['$timeout', 'cropHost', 'cropPubSub', function ($time
         }],
         link: function (scope, element) {
 
+            console.warn('This plugin is deprecated in the name of ui-cropper. You can find it under https://github.com/CrackerakiUA/ui-cropper');
+
             if (scope.liveView && typeof scope.liveView.block === 'boolean') {
                 scope.liveView.render = function (callback) {
                     updateResultImage(scope, true, callback);
@@ -3306,7 +3308,12 @@ crop.directive('imgCrop', ['$timeout', 'cropHost', 'cropPubSub', function ($time
                 if (newVal) {
                     displayLoading();
                 }
-                $timeout(function () {
+                // cancel timeout if necessary
+                if (!!scope.timeout) {
+                    $timeout.cancel(scope.timeout);
+                }
+                scope.timeout = $timeout(function () {
+                    scope.timeout = null;
                     cropHost.setInitMax(scope.initMaxArea);
                     cropHost.setNewImageSource(scope.image);
                 }, 100);

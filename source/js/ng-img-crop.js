@@ -54,6 +54,8 @@ crop.directive('imgCrop', ['$timeout', 'cropHost', 'cropPubSub', function ($time
         }],
         link: function (scope, element) {
 
+            console.warn('This plugin is deprecated in the name of ui-cropper. You can find it under https://github.com/CrackerakiUA/ui-cropper');
+
             if (scope.liveView && typeof scope.liveView.block === 'boolean') {
                 scope.liveView.render = function (callback) {
                     updateResultImage(scope, true, callback);
