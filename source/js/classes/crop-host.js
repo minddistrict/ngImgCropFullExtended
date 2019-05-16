@@ -284,6 +284,11 @@ crop.factory('cropHost', ['$document', '$q', 'cropAreaCircle', 'cropAreaSquare',
                         resultWidth = resultHeight * aspectRatio;
                     }
 
+                    // patched in to prevent white bars
+                    // https://github.com/CrackerakiUA/ngImgCropFullExtended/issues/21
+                    temp_canvas.width = resultWidth;
+                    temp_canvas.height = resultHeight;
+
                     temp_ctx.drawImage(image,
                         x,
                         y,
