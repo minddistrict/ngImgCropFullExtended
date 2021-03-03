@@ -2,10 +2,10 @@
  * ngImgCropExtended v0.6.2
  * http://crackerakiua.github.io/ngImgCropFullExtended/
  *
- * Copyright (c) 2019 Alex Kaul
+ * Copyright (c) 2021 Alex Kaul
  * License: MIT
  *
- * Generated at Thursday, May 16th, 2019, 12:33:08 PM
+ * Generated at Wednesday, March 3rd, 2021, 11:59:45 AM
  */
 (function() {
 var crop = angular.module('ngImgCrop', []);
